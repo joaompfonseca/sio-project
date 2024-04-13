@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition 
+  xmlns="urn:jbpm.org:jpdl-3.2"
+  name="simple">
+   <start-state name="start">
+		<transition to="Avaliacao pelos Servicos Academicos"></transition>
+	</start-state>
+
+
+	<task-node name="Avaliacao pelos Servicos Academicos">
+		<task name="avaliacao">
+			<assignment actor-id="okmAdmin"></assignment>
+		</task>
+		<transition to="Resposta"></transition>
+	</task-node>
+
+	<decision name="Resposta">
+		<transition to="Carta de Cortesia"></transition>
+		<transition to="Avaliacao pela Reitoria" name="to Avaliacao pela Reitoria"></transition>
+	</decision>
+
+	<task-node name="Avaliacao pela Reitoria">
+		<transition to="Adicionar Documentos"></transition>
+	</task-node>
+
+	<task-node name="Carta de Cortesia">
+		<transition to="Enviar mail"></transition>
+	</task-node>
+
+	<node name="Enviar mail">
+		<transition to="Processo Terminado" name="to_Processo Terminado"></transition>
+	</node>
+
+	<decision name="Adicionar Documentos"></decision>
+
+	<task-node name="Adicionar Documentos Servicos"></task-node>
+
+
+	<end-state name="Processo Terminado"></end-state>
+</process-definition>

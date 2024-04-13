@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root-container name="simple" width="1428" height="354">
+  <node name="start" x="49" y="95" width="140" height="40">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Avaliacao pelos Servicos Academicos" x="293" y="94" width="250" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Resposta" x="623" y="92" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Avaliacao pela Reitoria" x="605" y="289" width="174" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Carta de Cortesia" x="851" y="90" width="165" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Enviar mail" x="1055" y="92" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Processo Terminado" x="1244" y="90" width="183" height="36"/>
+  <node name="Adicionar Documentos" x="338" y="289" width="161" height="36"/>
+  <node name="Adicionar Documentos Servicos" x="88" y="195" width="238" height="36"/>
+  <deployment graphicalInfoFile="/SIUA/src/main/jpdl/.simple.gpd.xml" imageFile="/SIUA/src/main/jpdl/simple.jpg" serverName="sio-project.northeurope.cloudapp.azure.com" serverPort="80" serverDeployer="/OpenKM/workflow-register">
+    <additionalFiles>
+      <element value="/SIUA/src/main/jpdl/forms.xml"/>
+    </additionalFiles>
+  </deployment>
+</root-container>
