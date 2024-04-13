@@ -1,86 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<root-container name="simple" width="1304" height="489">
-  <node name="start" x="52" y="47" width="132" height="36">
+<root-container name="simple" width="1235" height="456">
+  <node name="start" x="76" y="46" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Inicio do Fluxo" x="214" y="202" width="132" height="36">
+  <node name="Inicio do Fluxo" x="166" y="243" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Avaliacao pelos Servicos Academicos" x="321" y="92" width="254" height="36">
+  <node name="Avaliacao pelos Servicos Academicos" x="267" y="69" width="254" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Resposta" x="669" y="92" width="132" height="36">
+  <node name="Resposta" x="668" y="67" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
+    <edge>
+      <label x="-19" y="-18"/>
+    </edge>
+  </node>
+  <node name="Avaliacao pela reitoria" x="651" y="325" width="166" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Avaliacao pela reitoria" x="649" y="223" width="166" height="36">
+  <node name="Adicionar Documentos" x="302" y="325" width="178" height="36">
+    <edge>
+      <label x="7" y="-2"/>
+    </edge>
+    <edge>
+      <label x="-49" y="-7"/>
+    </edge>
+  </node>
+  <node name="Adicionar Documentos Servicos" x="454" y="170" width="234" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Adicionar Documentos" x="392" y="310" width="178" height="36">
-    <edge>
-      <label x="5" y="-10"/>
-    </edge>
-    <edge>
-      <label x="5" y="-10"/>
-    </edge>
-  </node>
-  <node name="Adicionar Documentos Servicos" x="82" y="308" width="234" height="36">
+  <node name="Validar Campos" x="897" y="66" width="146" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Validar Campos" x="911" y="91" width="146" height="36">
+  <node name="Enviar Mail" x="901" y="329" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Enviar Mail" x="927" y="321" width="132" height="36">
+  <node name="Completar Campos" x="887" y="203" width="163" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Completar Campos" x="908" y="202" width="163" height="36">
+  <node name="Arquivar Pasta" x="1101" y="328" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="end" x="1171" y="198" width="132" height="36"/>
-  <node name="Arquivar Pasta" x="1160" y="314" width="132" height="36">
+  <node name="decision1" x="77" y="148" width="132" height="36">
     <edge>
-      <label x="5" y="-10"/>
+      <label x="12" y="-9"/>
+    </edge>
+    <edge>
+      <label x="-44" y="-12"/>
     </edge>
   </node>
-  <node name="decision1" x="45" y="148" width="132" height="36">
-    <edge>
-      <label x="5" y="-10"/>
-    </edge>
-    <edge>
-      <label x="5" y="-10"/>
-    </edge>
-  </node>
-  <node name="end-state1" x="17" y="236" width="132" height="36"/>
+  <node name="end" x="1099" y="198" width="132" height="36"/>
+  <node name="end-state1" x="0" y="242" width="132" height="36"/>
   <deployment graphicalInfoFile="/SIUA/src/main/jpdl/.simple.gpd.xml" imageFile="/SIUA/src/main/jpdl/simple.jpg" serverName="localhost" serverPort="8080" serverDeployer="/OpenKM/workflow-register">
-    <classesAndResources>
-      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/action/Transaction1Action.java"/>
-      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/decision/Decision1.java"/>
-      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/decision/Decision2.java"/>
-      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/action/Action2.java"/>
-      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/action/Action3.java"/>
-      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/decision/Comecar.java"/>
-    </classesAndResources>
     <additionalFiles>
       <element value="/SIUA/src/main/jpdl/forms.xml"/>
     </additionalFiles>
