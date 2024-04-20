@@ -21,4 +21,13 @@
     <checkbox name="adicionar" label="Adicionado"></checkbox>
     <button name="submit" label="Submit"/>
   </workflow-form>
+  <workflow-form task="validar">
+    <checkbox name="validar" label="Validar"></checkbox>
+    <button name="submit" label="Submit"/>
+  </workflow-form>
+  <workflow-form task="completar">
+    <input name="assunto" label="Assunto"></input>
+    <input name="info" label="Mais Informação"></input>
+    <button name="submit" label="Submit"/>
+  </workflow-form>
 </workflow-forms>

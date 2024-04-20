@@ -23,7 +23,7 @@
 	<decision name="Resposta">
 		<handler class="com.openkm.workflow.decision.Decision1"></handler>
 		<transition to="Avaliacao pela reitoria" name="parecer"></transition>
-		<transition to="Carta de Cortesia" name="direta"></transition>
+		<transition to="Validar Campos" name="direta"></transition>
 	</decision>
 
 	<task-node name="Avaliacao pela reitoria">
@@ -46,13 +46,23 @@
 		<transition to="Avaliacao pela reitoria"></transition>
 	</task-node>
 
-	<task-node name="Carta de Cortesia">
-		<transition to="Enviar Mail"></transition>
+	<task-node name="Validar Campos">
+		<task name="validar">
+			<assignment actor-id="okmAdmin"></assignment>
+		</task>
+		<transition to="Completar Campos"></transition>
 	</task-node>
 
 	<node name="Enviar Mail">
 		<transition to="end"></transition>
 	</node>
+
+	<task-node name="Completar Campos">
+		<task name="completar">
+			<assignment actor-id="okmAdmin"></assignment>
+		</task>
+		<transition to="Enviar Mail"></transition>
+	</task-node>
 
 
 	<end-state name="end"></end-state>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<root-container name="simple" width="1306" height="489">
+<root-container name="simple" width="1304" height="489">
   <node name="start" x="17" y="93" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="end" x="1173" y="91" width="132" height="36"/>
+  <node name="end" x="1171" y="198" width="132" height="36"/>
   <node name="Inicio do Fluxo" x="159" y="160" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
@@ -43,12 +43,17 @@
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Carta de Cortesia" x="874" y="92" width="146" height="36">
+  <node name="Validar Campos" x="911" y="91" width="146" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="Enviar Mail" x="1035" y="163" width="132" height="36">
+  <node name="Enviar Mail" x="973" y="311" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Completar Campos" x="908" y="202" width="163" height="36">
     <edge>
       <label x="5" y="-10"/>
     </edge>
