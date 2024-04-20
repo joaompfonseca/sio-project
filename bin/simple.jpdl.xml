@@ -40,6 +40,9 @@
 	</decision>
 
 	<task-node name="Adicionar Documentos Servicos">
+		<task name="adicionar">
+			<assignment actor-id="okmAdmin"></assignment>
+		</task>
 		<transition to="Avaliacao pela reitoria"></transition>
 	</task-node>
 

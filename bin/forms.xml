@@ -17,4 +17,8 @@
     </select>
     <button name="submit" label="Submit"/>
   </workflow-form>
+  <workflow-form task="adicionar">
+    <checkbox name="adicionar" label="Adicionado"></checkbox>
+    <button name="submit" label="Submit"/>
+  </workflow-form>
 </workflow-forms>
