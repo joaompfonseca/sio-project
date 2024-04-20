@@ -6,5 +6,7 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="JBPM/jBPM"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenKM"/>
+	<classpathentry kind="src" path="/openkm"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

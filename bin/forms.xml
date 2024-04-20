@@ -3,10 +3,18 @@
                                 "http://www.openkm.com/dtd/workflow-forms-2.4.dtd">
 <workflow-forms>
   <workflow-form task="avaliacao">
-   <select name="options" label="Options">
-      <option label="Direto" value="Direto"/>
+    <select name="options" label="Options">
+      <option label="Positiva" value="Positiva"/>
+      <option label="Negativa" value="Negativa"/>
       <option label="Parecer" value="Parecer"/>
     </select>
-     <button name="submit" label="Submit" />
+    <button name="submit" label="Submit"/>
+  </workflow-form>
+  <workflow-form task="avaliacao-reitoria">
+    <select name="options" label="Options">
+      <option label="Parecer" value="parecer"/>
+      <option label="Mais Informação" value="adicionar"/>
+    </select>
+    <button name="submit" label="Submit"/>
   </workflow-form>
 </workflow-forms>

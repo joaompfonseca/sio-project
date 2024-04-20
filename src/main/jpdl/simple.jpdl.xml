@@ -4,9 +4,14 @@
   xmlns="urn:jbpm.org:jpdl-3.2"
   name="simple">
    <start-state name="start">
-		<transition to="Avaliacao pelos Servicos Academicos"></transition>
+		<transition to="Inicio do Fluxo"></transition>
 	</start-state>
 
+
+	<node name="Inicio do Fluxo">
+		<action class="com.openkm.workflow.action.Transaction1Action" name="action1"></action>
+		<transition to="Avaliacao pelos Servicos Academicos"></transition>
+	</node>
 
 	<task-node name="Avaliacao pelos Servicos Academicos">
 		<task name="avaliacao">
@@ -16,26 +21,36 @@
 	</task-node>
 
 	<decision name="Resposta">
-		<transition to="Carta de Cortesia"></transition>
-		<transition to="Avaliacao pela Reitoria" name="to Avaliacao pela Reitoria"></transition>
+		<handler class="com.openkm.workflow.decision.Decision1"></handler>
+		<transition to="Avaliacao pela reitoria" name="parecer"></transition>
+		<transition to="Carta de Cortesia" name="direta"></transition>
 	</decision>
 
-	<task-node name="Avaliacao pela Reitoria">
+	<task-node name="Avaliacao pela reitoria">
+		<task name="avaliacao-reitoria">
+			<assignment actor-id="okmAdmin"></assignment>
+		</task>
 		<transition to="Adicionar Documentos"></transition>
 	</task-node>
 
-	<task-node name="Carta de Cortesia">
-		<transition to="Enviar mail"></transition>
+	<decision name="Adicionar Documentos">
+		<handler class="com.openkm.workflow.decision.Decision2"></handler>
+		<transition to="Adicionar Documentos Servicos" name="adicionar"></transition>
+		<transition to="Avaliacao pelos Servicos Academicos" name="parecer"></transition>
+	</decision>
+
+	<task-node name="Adicionar Documentos Servicos">
+		<transition to="Avaliacao pela reitoria"></transition>
 	</task-node>
 
-	<node name="Enviar mail">
-		<transition to="Processo Terminado" name="to_Processo Terminado"></transition>
+	<task-node name="Carta de Cortesia">
+		<transition to="Enviar Mail"></transition>
+	</task-node>
+
+	<node name="Enviar Mail">
+		<transition to="end"></transition>
 	</node>
 
-	<decision name="Adicionar Documentos"></decision>
 
-	<task-node name="Adicionar Documentos Servicos"></task-node>
-
-
-	<end-state name="Processo Terminado"></end-state>
+	<end-state name="end"></end-state>
 </process-definition>
