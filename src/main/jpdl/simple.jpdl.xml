@@ -4,7 +4,7 @@
   xmlns="urn:jbpm.org:jpdl-3.2"
   name="simple">
    <start-state name="start">
-		<transition to="Inicio do Fluxo"></transition>
+		<transition to="decision1"></transition>
 	</start-state>
 
 
@@ -15,7 +15,7 @@
 
 	<task-node name="Avaliacao pelos Servicos Academicos">
 		<task name="avaliacao">
-			<assignment actor-id="okmAdmin"></assignment>
+			<assignment actor-id="servAc"></assignment>
 		</task>
 		<transition to="Resposta"></transition>
 	</task-node>
@@ -28,7 +28,7 @@
 
 	<task-node name="Avaliacao pela reitoria">
 		<task name="avaliacao-reitoria">
-			<assignment actor-id="okmAdmin"></assignment>
+			<assignment actor-id="reitoria"></assignment>
 		</task>
 		<transition to="Adicionar Documentos"></transition>
 	</task-node>
@@ -41,30 +41,43 @@
 
 	<task-node name="Adicionar Documentos Servicos">
 		<task name="adicionar">
-			<assignment actor-id="okmAdmin"></assignment>
+			<assignment actor-id="servAc"></assignment>
 		</task>
 		<transition to="Avaliacao pela reitoria"></transition>
 	</task-node>
 
 	<task-node name="Validar Campos">
 		<task name="validar">
-			<assignment actor-id="okmAdmin"></assignment>
+			<assignment actor-id="servAc"></assignment>
 		</task>
 		<transition to="Completar Campos"></transition>
 	</task-node>
 
 	<node name="Enviar Mail">
 		<action name="sendmail" class="com.openkm.workflow.action.Action2"></action>
-		<transition to="end"></transition>
+		<transition to="Arquivar Pasta"></transition>
 	</node>
 
 	<task-node name="Completar Campos">
 		<task name="completar">
-			<assignment actor-id="okmAdmin"></assignment>
+			<assignment actor-id="servAc"></assignment>
 		</task>
 		<transition to="Enviar Mail"></transition>
 	</task-node>
 
+	<node name="Arquivar Pasta">
+		<action name="Arquivar" class="com.openkm.workflow.action.Action3"></action>
+		<transition to="end"></transition>
+	</node>
+
+	<decision name="decision1">
+		<handler class="com.openkm.workflow.decision.Comecar"></handler>
+		<transition to="Inicio do Fluxo" name="comecar"></transition>
+		<transition to="end-state1" name="acabar"></transition>
+	</decision>
+
 
 	<end-state name="end"></end-state>
+
+	<end-state name="end-state1"></end-state>
 </process-definition>

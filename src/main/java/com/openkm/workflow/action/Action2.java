@@ -25,6 +25,8 @@ public class Action2 implements ActionHandler {
 		
 		String decision = (String) executionContext.getContextInstance().getVariable("Resposta");
 		
+		String mail = (String) executionContext.getContextInstance().getVariable("Email");
+		
 		Input assunto = (Input) executionContext.getContextInstance().getVariable("assunto");
 		
 		TextArea info = (TextArea) executionContext.getContextInstance().getVariable("info");
@@ -45,7 +47,7 @@ public class Action2 implements ActionHandler {
 		String text = "Na sequência do requiremento " + number + " do dia " + date + " relativo ao assunto: " + assunto.getValue() + ", vimos pelo presente informar que sobre o mesmo recaiu o despacho cujo teor a seguir se transcreve " + decision + ". " + info.getValue() ;
 		
 		try{
-			MailUtils.sendMessage("diogoluispaiva2002@gmail.com", "Requerimento", text);
+			MailUtils.sendMessage(mail, "Requerimento", text);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

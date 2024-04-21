@@ -18,10 +18,10 @@ public class Decision1 implements DecisionHandler {
 		String d = "parecer";
 		
 		if(value.equals("Positiva")){
-			executionContext.getContextInstance().setVariable("Resposta", value);
+			executionContext.getContextInstance().setVariable("Resposta", "Deferido");
 			d = "direta";
 		} else if (value.equals("Negativa")) {
-			executionContext.getContextInstance().setVariable("Resposta", value);
+			executionContext.getContextInstance().setVariable("Resposta", "Recusado");
 			d = "direta";
 		}
 		
