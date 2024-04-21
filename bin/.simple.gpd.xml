@@ -6,7 +6,6 @@
       <label x="5" y="-10"/>
     </edge>
   </node>
-  <node name="end" x="1171" y="198" width="132" height="36"/>
   <node name="Inicio do Fluxo" x="159" y="160" width="132" height="36">
     <edge>
       <label x="5" y="-10"/>
@@ -58,11 +57,13 @@
       <label x="5" y="-10"/>
     </edge>
   </node>
+  <node name="end" x="1171" y="198" width="132" height="36"/>
   <deployment graphicalInfoFile="/SIUA/src/main/jpdl/.simple.gpd.xml" imageFile="/SIUA/src/main/jpdl/simple.jpg" serverName="localhost" serverPort="8080" serverDeployer="/OpenKM/workflow-register">
     <classesAndResources>
       <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/action/Transaction1Action.java"/>
       <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/decision/Decision1.java"/>
       <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/decision/Decision2.java"/>
+      <element type="java" value="/SIUA/src/main/java/com/openkm/workflow/action/Action2.java"/>
     </classesAndResources>
     <additionalFiles>
       <element value="/SIUA/src/main/jpdl/forms.xml"/>

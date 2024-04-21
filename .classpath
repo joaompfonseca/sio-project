@@ -8,5 +8,6 @@
 	<classpathentry kind="con" path="JBPM/jBPM"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenKM"/>
 	<classpathentry kind="src" path="/openkm"/>
+	<classpathentry kind="lib" path="/home/openkm/Downloads/mail-1.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

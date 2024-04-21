@@ -27,7 +27,7 @@
   </workflow-form>
   <workflow-form task="completar">
     <input name="assunto" label="Assunto"></input>
-    <input name="info" label="Mais Informação"></input>
+    <textarea name="info" label="Mais Informação"></textarea>
     <button name="submit" label="Submit"/>
   </workflow-form>
 </workflow-forms>

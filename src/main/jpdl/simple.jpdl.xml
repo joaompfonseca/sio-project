@@ -54,6 +54,7 @@
 	</task-node>
 
 	<node name="Enviar Mail">
+		<action name="sendmail" class="com.openkm.workflow.action.Action2"></action>
 		<transition to="end"></transition>
 	</node>
 
