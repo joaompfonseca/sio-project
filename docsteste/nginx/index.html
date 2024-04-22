@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenKM Upload Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input[type="text"],
+        .input-group input[type="password"],
+        .input-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45A049;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload File to OpenKM</h1>
+        <form id="uploadForm" method="post" enctype="multipart/form-data" action="index.php">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="fileName">File Name:</label>
+                <input type="text" id="fileName" name="fileName" required>
+            </div>
+            <div class="input-group">
+                <label for="fileUpload">Select File:</label>
+                <input type="file" id="fileUpload" name="fileUpload" required>
+            </div>
+            <button type="submit">Upload</button>
+            <div id="message"></div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        const form = document.getElementById('uploadForm');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            message.innerHTML = "";
+
+            // Validation
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const fileName = document.getElementById('fileName').value;
+            const fileUpload = document.getElementById('fileUpload').files[0];
+
+            if (!username || !password || !fileName || !fileUpload) {
+                message.classList.add('error-message');
+                message.innerHTML = "Please fill out all fields.";
+                return;
+            }
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => response.text())
+            .then(text => JSON.parse(text))
+            .then(data => {
+                if (data.success) {
+                    message.classList.add('success-message');
+                    message.innerHTML = data.message
+                    form.reset();
+                } else {
+                    message.classList.add('error-message');
+                    message.innerHTML = data.message;
+                }
+            })
+            .catch(error => {
+                message.classList.add('error-message');
+                message.innerHTML = error;
+            });
+        });
+    </script>
+</body>
+</html>
