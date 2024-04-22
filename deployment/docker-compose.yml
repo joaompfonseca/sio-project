@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+
+  openkm:
+    image: openkm/openkm-ce:6.3.9
+    container_name: openkm
+    ports:
+      - "80:8080"   
+    volumes:
+      - ./server.xml:/opt/tomcat/conf/server.xml
+      - ./OpenKM.cfg:/opt/tomcat/OpenKM.cfg      
+      - ./repository:/opt/tomcat/repository
+    depends_on:
+      - mysql
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:5.7.16
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=okmdb
+      - MYSQL_USER=openkm
+      - MYSQL_PASSWORD=openkm
+      - MYSQL_ROOT_PASSWORD=openkm  
+    volumes:
+      - ./mysql:/var/lib/mysql
+    restart: unless-stopped
